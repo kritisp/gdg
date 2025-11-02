@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Tags -->
+    <title>Pricing Plans | Innovato</title>
+    <meta name="description" content="Find the perfect plan. Innovato offers flexible pricing for teams of all sizes. Compare plans and start your 14-day free trial today.">
+    <link rel="canonical" href="https://innovato.com/pricing">
+    
+    <!-- OG Meta -->
+    <meta property="og:title" content="Pricing Plans | Innovato">
+    <meta property="og:description" content="Clear, flexible pricing for teams of all sizes.">
+    <meta property="og:image" content="https://placehold.co/1200x630/0A0F1F/0FF4C6?text=Innovato+Pricing">
+    <meta property="og:url" content="https://innovato.com/pricing">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon (Inline SVG) - Same as Home Page -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🚀</text></svg>">
+
+    <!-- Fonts: Poppins (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Animation Libraries CSS (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config (Same as Home Page) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Brand Colors from Prompt
+                        'brand-bg': '#0A0F1F',
+                        'brand-card': '#111827',
+                        'brand-accent': '#0FF4C6',
+                        'brand-cta': '#FF6B6B',
+                        'brand-parchment': '#f7f3e9', 
+                    },
+                    fontFamily: {
+                        // Fonts from Prompt
+                        'sans': ['Inter', 'sans-serif'],
+                        'heading': ['Poppins', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        // Neon Glow Effects
+                        'glow': '0 0 15px 0 rgba(15, 244, 198, 0.4)',
+                        'glow-lg': '0 0 25px 0 rgba(15, 244, 198, 0.5)',
+                        'glow-cta': '0 0 20px 0 rgba(255, 107, 107, 0.6)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Base styles */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Glassmorphism for Navbar */
+        .glass-nav {
+            background-color: rgba(10, 15, 31, 0.7); /* brand-bg w/ transparency */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom-width: 1px;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Pricing Toggle Switch */
+        .toggle-bg:after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            background: white;
+            width: 2rem; /* h-8 */
+            height: 2rem; /* w-8 */
+            border-radius: 9999px; /* rounded-full */
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        input:checked + .toggle-bg:after {
+            transform: translateX(100%);
+        }
+        input:checked + .toggle-bg {
+            background-color: #0FF4C6; /* brand-accent */
+        }
+        
+        /* Comparison Matrix Sticky Header */
+        .comparison-matrix th {
+            position: sticky;
+            top: 80px; /* Height of navbar */
+            background-color: #111827; /* brand-card */
+            z-index: 10;
+        }
+        
+        /* FAQ Accordion Icon */
+        .faq-question svg {
+            transition: transform 0.3s;
+        }
+        .faq-question[aria-expanded="true"] svg {
+            transform: rotate(180deg);
+        }
+    </style>
+
+    <!-- SEO: JSON-LD Pricing Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "OfferCatalog",
+      "name": "Innovato Product Plans",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Starter",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "29",
+            "priceCurrency": "USD",
+            "unitText": "per user per month"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Professional",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "99",
+            "priceCurrency": "USD",
+            "unitText": "per user per month"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Enterprise",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "Custom",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body class="bg-brand-bg text-white font-sans">
+
+    <!-- === Header / Navbar === -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2" aria-label="Innovato Home">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 0L32 9.2376L24 28.7624L8 28.7624L0 9.2376L16 0Z" fill="#0FF4C6"/><path d="M16 7.38992L26.3923 13.1188L20.8 24.8812H11.2L5.60771 13.1188L16 7.38992Z" fill="#0A0F1F"/></svg>
+                <span class="font-heading font-bold text-2xl text-white">Innovato</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <ul class="hidden md:flex items-center space-x-8">
+                <li><a href="index.html#features" class="text-gray-300 hover:text-brand-accent transition-colors">Features</a></li>
+                <li><a href="product.html" class="text-gray-300 hover:text-brand-accent transition-colors">Solutions</a></li>
+                <li><a href="pricing.html" class="text-brand-accent font-semibold">Pricing</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-brand-accent transition-colors">Reviews</a></li>
+                <li><a href="about.html" class="text-gray-300 hover:text-brand-accent transition-colors">Contact</a></li>
+            </ul>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="#" class="hidden sm:inline-block bg-brand-cta hover:bg-opacity-80 text-white font-semibold py-2 px-5 rounded-lg transition-all duration-300 shadow-glow-cta hover:shadow-none">
+                    Get Started
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-gray-300 hover:text-white hover:bg-brand-card" aria-label="Toggle menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden glass-nav shadow-lg">
+            <ul class="flex flex-col space-y-4 p-4">
+                <li><a href="index.html#features" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Features</a></li>
+                <li><a href="solutions.html" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Solutions</a></li>
+                <li><a href="pricing.html" class="block text-brand-accent font-semibold py-2">Pricing</a></li>
+                <li><a href="#" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Reviews</a></li>
+                <li><a href="about.html" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Contact</a></li>
+                <li>
+                    <a href="#" class="block bg-brand-cta text-white font-semibold py-2 px-5 rounded-lg text-center mt-2">
+                        Get Started
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- === Main Content === -->
+    <main>
+
+        <!-- === Pricing Hero Section === -->
+        <section class="pt-32 pb-20 md:pt-40 md:pb-28 text-center">
+            <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+                <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white leading-tight" data-aos="fade-up">
+                    Clear Pricing, No Surprises
+                </h1>
+                <p class="mt-4 text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Start your 14-day free trial on any plan. No credit card required. Cancel anytime.
+                </p>
+            </div>
+        </section>
+
+        <!-- === Pricing Toggle === -->
+        <section class="pb-16" data-aos="fade-up" data-aos-delay="200">
+            <div class="container mx-auto max-w-md px-4 sm:px-6 lg:px-8 flex justify-center items-center space-x-4">
+                <span id="monthly-label" class="font-semibold text-lg text-white">Monthly</span>
+                
+                <label for="pricing-toggle" class="flex items-center cursor-pointer">
+                    <span class="sr-only">Toggle between monthly and yearly pricing</span>
+                    <input type="checkbox" id="pricing-toggle" class="sr-only" role="switch" aria-checked="false" aria-labelledby="monthly-label yearly-label">
+                    <div class="toggle-bg relative w-16 h-10 bg-brand-card rounded-full transition-colors"></div>
+                </label>
+                
+                <span id="yearly-label" class="font-semibold text-lg text-gray-400">Yearly</span>
+                
+                <span id="savings-badge" class="ml-2 bg-brand-accent/10 text-brand-accent font-semibold text-sm px-3 py-1 rounded-full opacity-0 transition-opacity duration-300">
+                    Save 20%
+                </span>
+            </div>
+        </section>
+
+        <!-- === Pricing Tiers Grid === -->
+        <section class="pb-20 md:pb-32">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+
+                    <!-- Plan 1: Starter -->
+                    <div class="bg-brand-card rounded-2xl p-8 border border-white/10 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="font-heading text-3xl font-semibold">Starter</h3>
+                        <p class="mt-2 text-gray-400">For small teams and startups getting off the ground.</p>
+                        
+                        <div class="my-8">
+                            <!-- COMMENT: Change prices here -->
+                            <div class="relative">
+                                <!-- Monthly Price -->
+                                <span data-price-monthly class="text-5xl font-heading font-bold">$29</span>
+                                <!-- Yearly Price -->
+                                <span data-price-yearly class="hidden text-5xl font-heading font-bold">$23</span>
+                                
+                                <span class="text-gray-400 text-lg">/ user / mo</span>
+                            </div>
+                            <!-- Sub-text for pricing -->
+                            <span data-price-monthly class="text-sm text-gray-500">Billed monthly</span>
+                            <span data-price-yearly class="hidden text-sm text-brand-accent">Billed as $276 annually</span>
+                        </div>
+
+                        <ul class="space-y-4 text-gray-300 flex-grow">
+                            <!-- COMMENT: Change feature limits here -->
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Up to 5 users</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>10,000 API calls/mo</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>10 GB storage</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Nexus AI & Automata</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Basic integrations</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Email support</span></li>
+                        </ul>
+                        
+                        <a href="#" class="mt-8 block w-full text-center border-2 border-brand-accent text-brand-accent font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-brand-accent hover:text-brand-bg" data-ga-event="start_trial_starter">
+                            Start Free Trial
+                        </a>
+                    </div>
+
+                    <!-- Plan 2: Professional (Recommended) -->
+                    <div class="bg-brand-card rounded-2xl p-8 border-2 border-brand-accent flex flex-col relative transform scale-105 shadow-glow-lg" data-aos="fade-up">
+                        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-bg font-semibold text-sm px-4 py-1 rounded-full">RECOMMENDED</span>
+                        
+                        <h3 class="font-heading text-3xl font-semibold">Professional</h3>
+                        <p class="mt-2 text-gray-400">For growing teams that need to scale and automate.</p>
+                        
+                        <div class="my-8">
+                            <!-- COMMENT: Change prices here -->
+                            <div class="relative">
+                                <!-- Monthly Price -->
+                                <span data-price-monthly class="text-5xl font-heading font-bold">$99</span>
+                                <!-- Yearly Price -->
+                                <span data-price-yearly class="hidden text-5xl font-heading font-bold">$79</span>
+                                
+                                <span class="text-gray-400 text-lg">/ user / mo</span>
+                            </div>
+                            <!-- Sub-text for pricing -->
+                            <span data-price-monthly class="text-sm text-gray-500">Billed monthly</span>
+                            <span data-price-yearly class="hidden text-sm text-brand-accent">Billed as $948 annually</span>
+                        </div>
+
+                        <ul class="space-y-4 text-gray-300 flex-grow">
+                            <!-- COMMENT: Change feature limits here -->
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Up to 20 users</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>100,000 API calls/mo</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>100 GB storage</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Full Product Suite</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Premium integrations</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Priority email & chat support</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>SSO / SAML login</span></li>
+                        </ul>
+                        
+                        <a href="#" class="mt-8 block w-full text-center bg-brand-accent text-brand-bg font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-glow-lg hover:shadow-none hover:bg-opacity-80" data-ga-event="start_trial_professional">
+                            Start Free Trial
+                        </a>
+                    </div>
+
+                    <!-- Plan 3: Enterprise -->
+                    <div class="bg-brand-card rounded-2xl p-8 border border-white/10 flex flex-col" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="font-heading text-3xl font-semibold">Enterprise</h3>
+                        <p class="mt-2 text-gray-400">For large organizations with custom security & support needs.</p>
+                        
+                        <div class="my-8">
+                            <span class="text-5xl font-heading font-bold">Custom</span>
+                            <p class="mt-4 text-gray-400">Let's build a plan that fits your exact requirements.</p>
+                        </div>
+
+                        <ul class="space-y-4 text-gray-300 flex-grow">
+                            <!-- COMMENT: Change feature limits here -->
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Unlimited users</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Unlimited API calls</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Unlimited storage</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Aegis Security Suite</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>24/7 phone support & SLA</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Dedicated Account Manager</span></li>
+                            <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Custom compliance & auditing</span></li>
+                        </ul>
+                        
+                        <a href="#enterprise-contact" class="mt-8 block w-full text-center bg-brand-cta hover:bg-opacity-80 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-glow-cta hover:shadow-none" data-ga-event="contact_sales_enterprise">
+                            Contact Sales
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- === Comparison Matrix === -->
+        <section class="py-20 md:py-32 bg-brand-card/30">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <h2 class="font-heading text-4xl sm:text-5xl font-bold text-center mb-16" data-aos="fade-up">Compare All Features</h2>
+                
+                <div class="overflow-x-auto rounded-lg border border-white/10" data-aos="fade-up">
+                    <table class="comparison-matrix w-full min-w-[800px] text-left">
+                        <thead class="bg-brand-card/80">
+                            <tr>
+                                <th scope="col" class="p-6 font-heading text-xl font-semibold">Features</th>
+                                <th scope="col" class="p-6 font-heading text-xl font-semibold w-1/4">Starter</th>
+                                <th scope="col" class="p-6 font-heading text-xl font-semibold w-1/4 text-brand-accent">Professional</th>
+                                <th scope="col" class="p-6 font-heading text-xl font-semibold w-1/4">Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/10">
+                            <!-- Group: Core -->
+                            <tr><td colspan="4" class="p-4 bg-brand-card/50 font-heading font-semibold text-lg">Core Platform</td></tr>
+                            <tr class="bg-brand-card">
+                                <th scope="row" class="p-6 font-medium">Users</th>
+                                <td class="p-6">Up to 5</td>
+                                <td class="p-6 text-brand-accent">Up to 20 (+$)</td>
+                                <td class="p-6">Unlimited</td>
+                            </tr>
+                            <tr class="bg-brand-card">
+                                <th scope="row" class="p-6 font-medium">Storage</th>
+                                <td class="p-6">10 GB</td>
+                                <td class="p-6 text-brand-accent">100 GB</td>
+                                <td class="p-6">Unlimited</td>
+                            </tr>
+                            <tr class="bg-brand-card">
+                                <th scope="row" class="p-6 font-medium">API Calls</th>
+                                <td class="p-6">10,000 / mo</td>
+                                <td class="p-6 text-brand-accent">100,000 / mo</td>
+                                <td class="p-6">Custom Rate Limit</td>
+                            </tr>
+                            
+                            <!-- Group: Products -->
+                            <tr><td colspan="4" class="p-4 bg-brand-card/50 font-heading font-semibold text-lg">Products</td></tr>
+                            <tr class="bg-brand-card">
+                                <th scope="row" class="p-6 font-medium">Nexus AI Dashboard</th>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                            </tr>
+                            <tr class="bg-brand-card">
+                                <th scope="row" class="p-6 font-medium">Quantum Automator</th>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                            </tr>
+                            <tr class="bg-brand-card">
+                                <th scope="row" class="p-6 font-medium">Aegis Security Suite</th>
+                                <td class="p-6 text-lg text-center text-gray-500">−</td>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                            </tr>
+
+                            <!-- Group: Support & Security -->
+                            <tr><td colspan="4" class="p-4 bg-brand-card/50 font-heading font-semibold text-lg">Support & Security</td></tr>
+                            <tr class="bg-brand-card">
+                                <th scope="row" class="p-6 font-medium">Support SLA</th>
+                                <td class="p-6">Email Support</td>
+                                <td class="p-6 text-brand-accent">Priority Email & Chat</td>
+                                <td class="p-6">24/7 Phone & Dedicated Rep</td>
+                            </tr>
+                            <tr class="bg-brand-card">
+                                <th scope="row" class="p-6 font-medium" title="Single Sign-On">SSO / SAML</th>
+                                <td class="p-6 text-lg text-center text-gray-500">−</td>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                            </tr>
+                            <tr class="bg-brand-card">
+                                <th scope="row" class="p-6 font-medium">Compliance & Audits</th>
+                                <td class="p-6 text-lg text-center text-gray-500">−</td>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                            </tr>
+                            <tr class="bg-brand-card">
+                                <th scope="row" class="p-6 font-medium">Dedicated Account Manager</th>
+                                <td class="p-6 text-lg text-center text-gray-500">−</td>
+                                <td class="p-6 text-lg text-center text-gray-500">−</td>
+                                <td class="p-6 text-2xl text-center text-brand-accent">✓</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Add-ons & Trust === -->
+        <section class="pb-20 md:pb-32">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Add-ons -->
+                    <div data-aos="fade-up">
+                        <h3 class="font-heading text-3xl font-bold mb-6">Add-ons & Extras</h3>
+                        <div class="space-y-4">
+                            <div class="bg-brand-card p-6 rounded-lg border border-white/10">
+                                <h4 class="font-semibold text-lg">Premium Onboarding</h4>
+                                <p class="text-sm text-gray-400">A one-time fee for a dedicated expert to migrate your data and set up your workflows. (Starts at $500)</p>
+                            </div>
+                            <div class="bg-brand-card p-6 rounded-lg border border-white/10">
+                                <h4 class="font-semibold text-lg">Premium Support Package</h4>
+                                <p class="text-sm text-gray-400">Get 24/7 phone support and a 1-hour response time SLA, even on the Starter plan. (Contact for pricing)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Trust Seals -->
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="font-heading text-3xl font-bold mb-6">Security & Trust</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-brand-card p-6 rounded-lg border border-white/10 text-center">
+                                <svg class="w-10 h-10 text-brand-accent mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                <h4 class="mt-3 font-semibold">PCI Compliant</h4>
+                            </div>
+                            <div class="bg-brand-card p-6 rounded-lg border border-white/10 text-center">
+                                <svg class="w-10 h-10 text-brand-accent mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                <h4 class="mt-3 font-semibold">SSL Encrypted</h4>
+                            </div>
+                            <div class="bg-brand-card p-6 rounded-lg border border-white/10 text-center">
+                                <svg class="w-10 h-10 text-brand-accent mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                                <h4 class="mt-3 font-semibold">GDPR Ready</h4>
+                            </div>
+                            <div class="bg-brand-card p-6 rounded-lg border border-white/10 text-center">
+                                <svg class="w-10 h-10 text-brand-accent mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                <h4 class="mt-3 font-semibold">99.99% Uptime SLA</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === FAQ Section === -->
+        <section class="py-20 md:py-32 bg-brand-card/30">
+            <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+                <h2 class="font-heading text-4xl sm:text-5xl font-bold text-center mb-16" data-aos="fade-up">Frequently Asked Questions</h2>
+                <div class="space-y-6" data-aos="fade-up">
+                    
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-brand-card border border-white/10 rounded-lg">
+                        <button class="faq-question flex justify-between items-center w-full p-6 text-left" aria-expanded="false" aria-controls="faq-answer-1">
+                            <span class="font-heading text-xl font-semibold">Can I change my plan later?</span>
+                            <svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="faq-answer-1" class="faq-answer hidden px-6 pb-6 text-gray-300" role="region">
+                            <p>Yes, absolutely. You can upgrade, downgrade, or cancel your plan at any time from your account dashboard. Prorated charges or credits will be applied automatically.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-brand-card border border-white/10 rounded-lg">
+                        <button class="faq-question flex justify-between items-center w-full p-6 text-left" aria-expanded="false" aria-controls="faq-answer-2">
+                            <span class="font-heading text-xl font-semibold">What happens at the end of my 14-day trial?</span>
+                            <svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="faq-answer-2" class="faq-answer hidden px-6 pb-6 text-gray-300" role="region">
+                            <p>We'll send you a reminder before your trial ends. You can then choose to add a credit card and select a paid plan to continue. If you do nothing, your account will be paused, but your data will not be deleted.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-brand-card border border-white/10 rounded-lg">
+                        <button class="faq-question flex justify-between items-center w-full p-6 text-left" aria-expanded="false" aria-controls="faq-answer-3">
+                            <span class="font-heading text-xl font-semibold">Is the "Yearly" plan paid all at once?</span>
+                            <svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="faq-answer-3" class="faq-answer hidden px-6 pb-6 text-gray-300" role="region">
+                            <p>Yes. The yearly plan is billed upfront for the full 12 months. This allows us to offer you a 20% discount compared to paying month-to-month.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-brand-card border border-white/10 rounded-lg">
+                        <button class="faq-question flex justify-between items-center w-full p-6 text-left" aria-expanded="false" aria-controls="faq-answer-4">
+                            <span class="font-heading text-xl font-semibold">What counts as an "API call"?</span>
+                            <svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="faq-answer-4" class="faq-answer hidden px-6 pb-6 text-gray-300" role="region">
+                            <p>An API call is a single request made to one of our product APIs. This includes actions triggered by the Quantum Automator or data queries run by the Nexus Dashboard.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="bg-brand-card border border-white/10 rounded-lg">
+                        <button class="faq-question flex justify-between items-center w-full p-6 text-left" aria-expanded="false" aria-controls="faq-answer-5">
+                            <span class="font-heading text-xl font-semibold">What if I need more than the Enterprise plan?</span>
+                            <svg class="w-6 h-6 text-brand-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="faq-answer-5" class="faq-answer hidden px-6 pb-6 text-gray-300" role="region">
+                            <p>Our Enterprise plan is fully customizable. We can build a bespoke plan with dedicated infrastructure, custom integrations, and specialized compliance guarantees. Use the contact form below to talk to our solutions team.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- === Enterprise Contact Form === -->
+        <section id="enterprise-contact" class="py-20 md:py-32">
+            <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+                <div class="bg-brand-card rounded-2xl p-8 md:p-12 border border-white/10">
+                    <h2 class="font-heading text-4xl sm:text-5xl font-bold text-center" data-aos="fade-up">Get an Enterprise Quote</h2>
+                    <p class="mt-4 text-lg text-gray-300 text-center max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                        Tell us about your needs, and our team will build a custom plan that scales with you.
+                    </p>
+
+                    <form class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="200">
+                        <!-- Full Name -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300">Full Name</label>
+                            <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+                        </div>
+                        
+                        <!-- Work Email -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300">Work Email</label>
+                            <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+                        </div>
+                        
+                        <!-- Company Name -->
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-gray-300">Company Name</label>
+                            <input type="text" id="company" name="company" class="mt-1 block w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+                        </div>
+                        
+                        <!-- Team Size -->
+                        <div>
+                            <label for="team-size" class="block text-sm font-medium text-gray-300">Team Size</label>
+                            <select id="team-size" name="team-size" class="mt-1 block w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+                                <option>1-50 employees</option>
+                                <option>51-200 employees</option>
+                                <option>201-1000 employees</option>
+                                <option>1000+ employees</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Message -->
+                        <div class="md:col-span-2">
+                            <label for="message" class="block text-sm font-medium text-gray-300">Tell us about your needs</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-3 rounded-lg bg-brand-bg border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent"></textarea>
+                        </div>
+                        
+                        <!-- File Upload -->
+                        <div class="md:col-span-2">
+                             <label for="file-upload" class="block text-sm font-medium text-gray-300">Attach RFP (optional)</label>
+                             <input type="file" id="file-upload" name="file-upload" class="mt-1 block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-accent/10 file:text-brand-accent hover:file:bg-brand-accent/20">
+                        </div>
+                        
+                        <!-- Submit -->
+                        <div class="md:col-span-2 text-center">
+                            <button type="submit" class="mt-6 bg-brand-cta hover:bg-opacity-80 text-white font-semibold py-3 px-12 rounded-lg text-lg transition-all duration-300 shadow-glow-cta hover:shadow-none" data-ga-event="submit_enterprise_quote">
+                                Submit Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- === Footer === -->
+    <footer class="py-16 border-t border-white/10">
+        <!-- Footer content copied from about.html for consistency -->
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <!-- Logo & Social -->
+                <div class="col-span-2">
+                     <a href="index.html" class="flex items-center gap-2" aria-label="Innovato Home">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 0L32 9.2376L24 28.7624L8 28.7624L0 9.2376L16 0Z" fill="#0FF4C6"/><path d="M16 7.38992L26.3923 13.1188L20.8 24.8812H11.2L5.60771 13.1188L16 7.38992Z" fill="#0A0F1F"/></svg>
+                        <span class="font-heading font-bold text-2xl text-white">Innovato</span>
+                    </a>
+                    <p class="mt-4 text-gray-400 text-sm max-w-xs">AI-driven tools for secure, scalable, and speedy B2B operations.</p>
+                     <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white" aria-label="Innovato on Twitter"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                        <a href="#" class="text-gray-400 hover:text-white" aria-label="Innovato on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    </div>
+                </div>
+                <div><h4 class="font-heading font-semibold text-white">Product</h4><ul class="mt-4 space-y-3"><li><a href="solutions.html" class="text-gray-400 hover:text-white text-sm">Nexus AI</a></li><li><a href="solutions.html" class="text-gray-400 hover:text-white text-sm">Shield Security</a></li><li><a href="solutions.html" class="text-gray-400 hover:text-white text-sm">Automata</a></li><li><a href="pricing.html" class="text-gray-400 hover:text-white text-sm">Pricing</a></li></ul></div>
+                <div><h4 class="font-heading font-semibold text-white">Company</h4><ul class="mt-4 space-y-3"><li><a href="about.html" class="text-gray-400 hover:text-white text-sm">About Us</a></li><li><a href="#" class="text-gray-400 hover:text-white text-sm">Careers</a></li><li><a href="#" class="text-gray-400 hover:text-white text-sm">Press</a></li><li><a href="about.html" class="text-gray-400 hover:text-white text-sm">Contact</a></li></ul></div>
+                <div><h4 class="font-heading font-semibold text-white">Resources</h4><ul class="mt-4 space-y-3"><li><a href="#" class="text-gray-400 hover:text-white text-sm">Blog</a></li><li><a href="#" class="text-gray-400 hover:text-white text-sm">Documentation</a></li><li><a href="#" class="text-gray-400 hover:text-white text-sm">API Status</a></li></ul></div>
+                <div><h4 class="font-heading font-semibold text-white">Legal</h4><ul class="mt-4 space-y-3"><li><a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a></li><li><a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a></li></ul></div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10 text-center text-gray-500 text-sm">&copy; <span id="current-year"></span> Innovato Inc. All rights reserved.</div>
+        </div>
+    </footer>
+
+
+    <!-- JS Libraries (GSAP & AOS) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Page JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- AOS Initialization ---
+            AOS.init({
+                once: true,
+                duration: 800,
+                easing: 'ease-out-quad',
+            });
+
+            // --- Navbar Scroll Effect ---
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('glass-nav');
+                } else {
+                    header.classList.remove('glass-nav');
+                }
+            });
+
+            // --- Mobile Menu Toggle ---
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Footer Current Year ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // --- Pricing Toggle Logic ---
+            const toggle = document.getElementById('pricing-toggle');
+            const monthlyElems = document.querySelectorAll('[data-price-monthly]');
+            const yearlyElems = document.querySelectorAll('[data-price-yearly]');
+            const savingsBadge = document.getElementById('savings-badge');
+            const monthlyLabel = document.getElementById('monthly-label');
+            const yearlyLabel = document.getElementById('yearly-label');
+
+            toggle.addEventListener('change', () => {
+                const isYearly = toggle.checked;
+                toggle.setAttribute('aria-checked', isYearly);
+
+                if (isYearly) {
+                    // Show Yearly
+                    monthlyElems.forEach(el => el.classList.add('hidden'));
+                    yearlyElems.forEach(el => el.classList.remove('hidden'));
+                    savingsBadge.style.opacity = '1';
+                    yearlyLabel.classList.remove('text-gray-400');
+                    yearlyLabel.classList.add('text-white');
+                    monthlyLabel.classList.add('text-gray-400');
+                    monthlyLabel.classList.remove('text-white');
+                    
+                    // GSAP animation for badge
+                    gsap.fromTo(savingsBadge, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(1.7)' });
+                } else {
+                    // Show Monthly
+                    monthlyElems.forEach(el => el.classList.remove('hidden'));
+                    yearlyElems.forEach(el => el.classList.add('hidden'));
+                    savingsBadge.style.opacity = '0';
+                    yearlyLabel.classList.add('text-gray-400');
+                    yearlyLabel.classList.remove('text-white');
+                    monthlyLabel.classList.remove('text-gray-400');
+                    monthlyLabel.classList.add('text-white');
+                }
+            });
+            
+            // --- FAQ Accordion Logic ---
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(button => {
+                button.addEventListener('click', () => {
+                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                    const answerId = button.getAttribute('aria-controls');
+                    const answerPanel = document.getElementById(answerId);
+                    
+                    button.setAttribute('aria-expanded', !isExpanded);
+                    answerPanel.classList.toggle('hidden');
+                    
+                    // Animate the answer panel
+                    if (!isExpanded) {
+                        // Animate in
+                        gsap.fromTo(answerPanel, 
+                            { height: 0, opacity: 0, paddingTop: 0, paddingBottom: 0 },
+                            { height: 'auto', opacity: 1, paddingTop: '0', paddingBottom: '1.5rem', duration: 0.3, ease: 'power2.out' }
+                        );
+                    } else {
+                        // Animate out
+                        gsap.to(answerPanel, { 
+                            height: 0, opacity: 0, paddingTop: 0, paddingBottom: 0, duration: 0.2, ease: 'power2.in', onComplete: () => {
+                                // We keep the 'hidden' class logic for accessibility and layout
+                            }
+                        });
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Tags -->
+    <title>Solutions | Innovato Product Suite</title>
+    <meta name="description" content="Explore the full suite of Innovato's AI-driven B2B solutions. Find the perfect tools for data, automation, security, and cloud operations.">
+    <link rel="canonical" href="https://innovato.com/solutions">
+    
+    <!-- OG Meta -->
+    <meta property="og:title" content="Solutions | Innovato Product Suite">
+    <meta property="og:description" content="Discover powerful, scalable solutions for modern teams.">
+    <meta property="og:image" content="https://placehold.co/1200x630/0A0F1F/0FF4C6?text=Innovato+Solutions">
+    <meta property="og:url" content="https://innovato.com/solutions">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon (Inline SVG) - Same as Home Page -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🚀</text></svg>">
+
+    <!-- Fonts: Poppins (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Animation Libraries CSS (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config (Same as Home Page) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Brand Colors from Prompt
+                        'brand-bg': '#0A0F1F',
+                        'brand-card': '#111827',
+                        'brand-accent': '#0FF4C6',
+                        'brand-cta': '#FF6B6B',
+                        'brand-parchment': '#f7f3e9', 
+                    },
+                    fontFamily: {
+                        // Fonts from Prompt
+                        'sans': ['Inter', 'sans-serif'],
+                        'heading': ['Poppins', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        // Neon Glow Effects
+                        'glow': '0 0 15px 0 rgba(15, 244, 198, 0.4)',
+                        'glow-cta': '0 0 20px 0 rgba(255, 107, 107, 0.6)',
+                    },
+                    animation: {
+                        'marquee': 'marquee 40s linear infinite',
+                    },
+                    keyframes: {
+                        'marquee': {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' }, 
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Base styles */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Glassmorphism for Navbar */
+        .glass-nav {
+            background-color: rgba(10, 15, 31, 0.7); /* brand-bg w/ transparency */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom-width: 1px;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Product Card Image Parallax on Hover */
+        .product-card-image {
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .product-card:hover .product-card-image {
+            transform: scale(1.05);
+        }
+
+        /* Modal Tabs */
+        .tab-btn.active {
+            color: #0FF4C6; /* brand-accent */
+            border-color: #0FF4C6;
+        }
+
+        /* Masonry Grid Fallback (using columns) */
+        .masonry-grid {
+            column-gap: 1.5rem; /* gap-6 */
+        }
+        .masonry-grid .product-card-wrapper {
+            break-inside: avoid; /* Prevent cards from breaking across columns */
+            margin-bottom: 1.5rem; /* gap-6 */
+        }
+
+        /* AOS Fallback (Progressive Enhancement) */
+        [data-aos] {
+            opacity: 0;
+            transition-property: transform, opacity;
+        }
+        .no-js [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    </style>
+
+    <!-- SEO: JSON-LD Structured Data Sample -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Nexus Dashboard",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "The central command center for all your business data. Connect disparate sources and get real-time, AI-powered insights in seconds.",
+      "offers": {
+        "@type": "Offer",
+        "price": "99",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "99",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": false,
+          "billingIncrement": "Monthly"
+        }
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "Innovato"
+      }
+    }
+    </script>
+</head>
+
+<body class="bg-brand-bg text-white font-sans">
+
+    <!-- === Header / Navbar === -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2" aria-label="Innovato Home">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 0L32 9.2376L24 28.7624L8 28.7624L0 9.2376L16 0Z" fill="#0FF4C6"/>
+                    <path d="M16 7.38992L26.3923 13.1188L20.8 24.8812H11.2L5.60771 13.1188L16 7.38992Z" fill="#0A0F1F"/>
+                </svg>
+                <span class="font-heading font-bold text-2xl text-white">Innovato</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <ul class="hidden md:flex items-center space-x-8">
+                <li><a href="index.html#features" class="text-gray-300 hover:text-brand-accent transition-colors">Features</a></li>
+                <li><a href="solutions.html" class="text-brand-accent font-semibold">Solutions</a></li>
+                <li><a href="pricing.html" class="text-gray-300 hover:text-brand-accent transition-colors">Pricing</a></li>
+                <li><a href="index.html" class="text-gray-300 hover:text-brand-accent transition-colors">Reviews</a></li>
+                <li><a href="contact.html" class="text-gray-300 hover:text-brand-accent transition-colors">Contact</a></li>
+            </ul>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="#" class="hidden sm:inline-block bg-brand-cta hover:bg-opacity-80 text-white font-semibold py-2 px-5 rounded-lg transition-all duration-300 shadow-glow-cta hover:shadow-none">
+                    Get Started
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-gray-300 hover:text-white hover:bg-brand-card" aria-label="Toggle menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden glass-nav shadow-lg">
+            <ul class="flex flex-col space-y-4 p-4">
+                <li><a href="index.html#features" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Features</a></li>
+                <li><a href="product.html" class="block text-brand-accent font-semibold py-2">Solutions</a></li>
+                <li><a href="pricing.html" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Pricing</a></li>
+                <li><a href="index.html#reviews" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Reviews</a></li>
+                <li><a href="contact.html" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Contact</a></li>
+                <li>
+                    <a href="#" class="block bg-brand-cta text-white font-semibold py-2 px-5 rounded-lg text-center mt-2">
+                        Get Started
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- === Main Content === -->
+    <main>
+
+        <!-- === Solutions Hero Section === -->
+        <section class="pt-32 pb-20 md:pt-40 md:pb-28">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <nav class="text-sm mb-4" aria-label="Breadcrumb">
+                    <ol class="list-none p-0 inline-flex space-x-2">
+                        <li class="flex items-center">
+                            <a href="index.html" class="text-gray-400 hover:text-brand-accent">Home</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-gray-500 mx-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                            <span class="text-gray-300" aria-current="page">Solutions</span>
+                        </li>
+                    </ol>
+                </nav>
+                <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white leading-tight" data-aos="fade-up">
+                    Solutions for Modern Teams
+                </h1>
+                <p class="mt-4 text-lg sm:text-xl text-gray-300 max-w-3xl" data-aos="fade-up" data-aos-delay="100">
+                    Find the perfect tool to scale your operations. Our AI-driven suite is built to solve your biggest challenges in data, automation, and security.
+                </p>
+            </div>
+        </section>
+
+        <!-- === Filter Toolbar === -->
+        <section class="sticky top-20 z-40 glass-nav py-4">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-4">
+                <!-- Search -->
+                <div class="relative flex-grow">
+                    <label for="search-product" class="sr-only">Search Products</label>
+                    <input 
+                        type="search" 
+                        id="search-product"
+                        placeholder="Search products (e.g., 'security')"
+                        class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-brand-card border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent"
+                    >
+                    <svg class="w-5 h-5 text-gray-500 absolute top-1/2 left-3 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                
+                <!-- Filters -->
+                <div class="flex gap-4">
+                    <!-- Category Filter -->
+                    <div class="flex-grow">
+                        <label for="filter-category" class="sr-only">Category</label>
+                        <select id="filter-category" class="w-full h-full px-4 py-2.5 rounded-lg bg-brand-card border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+                            <option value="all">All Categories</option>
+                            <option value="data">Data & Insights</option>
+                            <option value="automation">Automation</option>
+                            <option value="security">Security</option>
+                            <option value="cloud">Cloud</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Pricing Toggle -->
+                    <div class="flex-shrink-0">
+                         <label for="filter-pricing" class="sr-only">Pricing</label>
+                        <select id="filter-pricing" class="w-full h-full px-4 py-2.5 rounded-lg bg-brand-card border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+                            <option value="all">All Pricing</option>
+                            <option value="free">Free Tier</option>
+                            <option value="paid">Paid</option>
+                        </select>
+                    </div>
+
+                    <!-- Sort By -->
+                    <div class="flex-shrink-0 hidden lg:block">
+                         <label for="filter-sort" class="sr-only">Sort By</label>
+                        <select id="filter-sort" class="w-full h-full px-4 py-2.5 rounded-lg bg-brand-card border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+                            <option value="popular">Sort by Popularity</option>
+                            <option value="newest">Sort by Newest</option>
+                            <option value="name_asc">Sort by Name (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Featured Products Grid === -->
+        <section class="py-20 md:py-24">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold mb-12" data-aos="fade-up">Featured Platforms</h2>
+                <div id="featured-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    <!-- Product cards will be dynamically inserted here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- === All Products Grid === -->
+        <section class="py-20 md:py-24 bg-brand-card/30">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold mb-12" data-aos="fade-up">All Products</h2>
+                <!-- Using Tailwind's multi-column for a masonry-like effect -->
+                <div id="all-products-grid" class="masonry-grid md:columns-2 lg:columns-3" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Additional product cards will be dynamically inserted here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- === CTA Strip === -->
+        <section class="py-20 md:py-32">
+            <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center bg-brand-card border border-white/10 rounded-2xl p-12 md:p-16" data-aos="fade-up">
+                <h2 class="font-heading text-4xl sm:text-5xl font-bold">Schedule a personalized walkthrough.</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">Our team can show you how these tools fit your exact needs. See the platform in action, no strings attached.</p>
+                <a href="#" class="mt-8 inline-block bg-brand-cta hover:bg-opacity-80 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-all duration-300 shadow-glow-cta hover:shadow-none">
+                    Book a Demo
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- === Footer === -->
+    <footer class="py-16 border-t border-white/10">
+        <!-- Footer content copied from about.html for consistency -->
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <!-- Logo & Social -->
+                <div class="col-span-2">
+                     <a href="index.html" class="flex items-center gap-2" aria-label="Innovato Home">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 0L32 9.2376L24 28.7624L8 28.7624L0 9.2376L16 0Z" fill="#0FF4C6"/><path d="M16 7.38992L26.3923 13.1188L20.8 24.8812H11.2L5.60771 13.1188L16 7.38992Z" fill="#0A0F1F"/></svg>
+                        <span class="font-heading font-bold text-2xl text-white">Innovato</span>
+                    </a>
+                    <p class="mt-4 text-gray-400 text-sm max-w-xs">AI-driven tools for secure, scalable, and speedy B2B operations.</p>
+                     <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white" aria-label="Innovato on Twitter"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                        <a href="#" class="text-gray-400 hover:text-white" aria-label="Innovato on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    </div>
+                </div>
+                <div><h4 class="font-heading font-semibold text-white">Product</h4><ul class="mt-4 space-y-3"><li><a href="solutions.html" class="text-gray-400 hover:text-white text-sm">Nexus AI</a></li><li><a href="solutions.html" class="text-gray-400 hover:text-white text-sm">Shield Security</a></li><li><a href="solutions.html" class="text-gray-400 hover:text-white text-sm">Automata</a></li><li><a href="#" class="text-gray-400 hover:text-white text-sm">Pricing</a></li></ul></div>
+                <div><h4 class="font-heading font-semibold text-white">Company</h4><ul class="mt-4 space-y-3"><li><a href="about.html" class="text-gray-400 hover:text-white text-sm">About Us</a></li><li><a href="#" class="text-gray-400 hover:text-white text-sm">Careers</a></li><li><a href="#" class="text-gray-400 hover:text-white text-sm">Press</a></li><li><a href="contact.html" class="text-gray-400 hover:text-white text-sm">Contact</a></li></ul></div>
+                <div><h4 class="font-heading font-semibold text-white">Resources</h4><ul class="mt-4 space-y-3"><li><a href="#" class="text-gray-400 hover:text-white text-sm">Blog</a></li><li><a href="#" class="text-gray-400 hover:text-white text-sm">Documentation</a></li><li><a href="#" class="text-gray-400 hover:text-white text-sm">API Status</a></li></ul></div>
+                <div><h4 class="font-heading font-semibold text-white">Legal</h4><ul class="mt-4 space-y-3"><li><a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a></li><li><a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a></li></ul></div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10 text-center text-gray-500 text-sm">&copy; <span id="current-year"></span> Innovato Inc. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- === Product Detail Modal === -->
+    <div id="product-modal" class="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden" aria-modal="true" role="dialog" aria-labelledby="modal-title">
+        <!-- Modal content container -->
+        <div id="modal-content" class="bg-brand-card w-full max-w-5xl h-[90vh] rounded-2xl shadow-2xl border border-white/10 relative flex flex-col" style="opacity:0; transform: translateY(20px);">
+            <!-- Close Button -->
+            <button id="modal-close-btn" class="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white z-50" aria-label="Close product detail modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <!-- Modal Body (Scrollable) -->
+            <div id="modal-scroll-content" class="flex-grow overflow-y-auto">
+                <!-- Modal Header -->
+                <div class="relative flex flex-col md:flex-row items-center gap-8 p-8 md:p-12 bg-brand-bg/30">
+                    <img 
+                        id="modal-image"
+                        src="https://placehold.co/600x400/111827/0FF4C6?text=Product"
+                        alt="Product Image"
+                        class="w-full md:w-1/3 h-64 md:h-auto object-cover rounded-lg"
+                    >
+                    <div class="flex-1">
+                        <h2 id="modal-title" class="font-heading text-4xl lg:text-5xl font-bold">Product Name</h2>
+                        <p id="modal-tagline" class="mt-2 text-xl text-gray-300">Product tagline goes here.</p>
+                        <a href="#" class="mt-6 inline-block bg-brand-cta hover:bg-opacity-80 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-glow-cta hover:shadow-none">
+                            Book Demo
+                        </a>
+                        <a href="#" class="ml-4 border-2 border-brand-accent text-brand-accent font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-brand-accent hover:text-brand-bg">
+                            Start Free Trial
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Modal Tabs -->
+                <div class="border-b border-white/10 sticky top-0 bg-brand-card z-10 px-8 md:px-12">
+                    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                        <button class="tab-btn active" data-tab="overview" role="tab" aria-selected="true">
+                            Overview
+                        </button>
+                        <button class="tab-btn" data-tab="features" role="tab" aria-selected="false">
+                            Features
+                        </button>
+                        <button class="tab-btn" data-tab="integrations" role="tab" aria-selected="false">
+                            Integrations
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="p-8 md:p-12">
+                    <!-- Overview Panel -->
+                    <div id="tab-overview" class="tab-panel" role="tabpanel">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="md:col-span-2">
+                                <h3 class="font-heading text-2xl font-semibold mb-4">Business Outcomes</h3>
+                                <p id="modal-overview-desc" class="text-gray-300 leading-relaxed">Loading overview...</p>
+                            </div>
+                            <div>
+                                <h3 class="font-heading text-2xl font-semibold mb-4">Solves These Problems</h3>
+                                <ul id="modal-problems-list" class="space-y-3">
+                                    <!-- Problems loaded by JS -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Screenshots -->
+                        <h3 class="font-heading text-2xl font-semibold mt-12 mb-6">Screenshots</h3>
+                        <div id="modal-screenshots-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <!-- Screenshots loaded by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Features Panel -->
+                    <div id="tab-features" class="tab-panel hidden" role="tabpanel">
+                        <h3 class="font-heading text-2xl font-semibold mb-6">Core Features</h3>
+                        <ul id="modal-features-list" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                            <!-- Features loaded by JS -->
+                        </ul>
+                    </div>
+
+                    <!-- Integrations Panel -->
+                    <div id="tab-integrations" class="tab-panel hidden" role="tabpanel">
+                        <h3 class="font-heading text-2xl font-semibold mb-6">Connect Your Stack</h3>
+                        <p class="text-gray-300 mb-8 max-w-2xl">Connect seamlessly with the tools you already use. New integrations are added weekly.</p>
+                        <div id="modal-integrations-list" class="flex flex-wrap gap-6 items-center">
+                            <!-- Integrations loaded by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Studies Section (Inside Scrollable Area) -->
+                <div class="px-8 md:px-12 py-12 bg-brand-bg/30">
+                    <h3 class="font-heading text-3xl font-semibold mb-8 text-center">Success Stories</h3>
+                    <div id="modal-case-studies" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <!-- Case studies loaded by JS -->
+                    </div>
+                </div>
+
+                <!-- Pricing Snapshot (Inside Scrollable Area) -->
+                 <div class="px-8 md:px-12 py-12">
+                    <div id="modal-pricing-snapshot" class="max-w-4xl mx-auto bg-brand-card rounded-xl border border-white/10 p-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <!-- Pricing info loaded by JS -->
+                    </div>
+                 </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JS Libraries (GSAP & AOS) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Page JavaScript -->
+    <script>
+        // --- Product Data (This would be fetched from products.json) ---
+        // I'm including it here to make the page interactive in this single-file format.
+        const productData = {
+            "nexus": {
+                name: "Nexus Dashboard",
+                tagline: "Your central AI-powered command center.",
+                price: "Starts at $99/mo",
+                category: "data",
+                featured: true,
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjB1aXxlbnwwfHx8fDE3MzAzMDY4ODZ8MA&ixlib=rb-4.0.3&q=85&w=600",
+                benefits: [
+                    "Real-time data aggregation",
+                    "AI-driven predictive insights",
+                    "Customizable reporting"
+                ],
+                overview: "Nexus Dashboard is the central command center for all your business data. It breaks down data silos by connecting disparate sources—from your CRM to your ad platforms—into one unified, real-time view. Our predictive AI models analyze your KPIs to surface opportunities and threats before they happen. Stop reacting and start predicting.",
+                problems: [
+                    "Scattered data across multiple platforms",
+                    "Inability to get quick, actionable insights",
+                    "Time-consuming manual report building"
+                ],
+                features: [
+                    "Multi-source data connectors (100+)", "Natural language query (Ask AI)", "Predictive forecasting models", "Automated anomaly detection",
+                    "Embeddable dashboards", "Role-based access control", "Real-time KPI tracking", "Slack & Email alerts"
+                ],
+                screenshots: [
+                    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjB1aXxlbnwwfHx8fDE3MzAzMDY4ODZ8MA&ixlib=rb-4.0.3&q=85&w=600",
+                    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwzfHx3ZWIlMjBhbmFseXRpY3N8ZW58MHx8fHwxNzMwMzA2OTE3fDA&ixlib=rb-4.0.3&q=85&w=600",
+                    "https://images.unsplash.com/photo-1556155092-490a1ba16284?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHw1fHxkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwwfHx8fDE3MzAzMDY5MzR8MA&ixlib=rb-4.0.3&q=85&w=600"
+                ],
+                integrations: [
+                    { name: "Salesforce", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Salesforce" },
+                    { name: "Slack", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Slack" },
+                    { name: "Google Analytics", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Analytics" },
+                    { name: "HubSpot", logo: "https://placehold.co/100x40/111827/FFFFFF?text=HubSpot" },
+                    { name: "Stripe", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Stripe" }
+                ],
+                caseStudies: [
+                    {
+                        company: "FutureCorp",
+                        metric: "+40% Efficiency",
+                        quote: "Nexus eliminated 20 hours of manual reporting per week. We now spot trends in days, not months."
+                    },
+                    {
+                        company: "ScaleUp",
+                        metric: "-15% Churn",
+                        quote: "Using Nexus predictive insights, we identified at-risk customers and improved our retention rate significantly."
+                    }
+                ]
+            },
+            "quantum": {
+                name: "Quantum Automator",
+                tagline: "Build, deploy, and scale any workflow.",
+                price: "Starts at $75/mo",
+                category: "automation",
+                featured: true,
+                image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHx3b3JrZmxvdyUyMGF1dG9tYXRpb258ZW58MHx8fHwxNzMwMzA2OTYwfDA&ixlib=rb-4.0.3&q=85&w=600",
+                benefits: [
+                    "Visual drag-and-drop builder",
+                    "Automate repetitive tasks",
+                    "Integrates with 500+ apps"
+                ],
+                overview: "Stop the busywork. Quantum Automator is a visual-first platform that lets you automate any repetitive task, from simple data entry to complex, multi-step approval chains. Use our drag-and-drop interface to connect your favorite apps and build powerful 'recipes' that run 24/7. Free your team to focus on what matters.",
+                problems: [
+                    "Time wasted on manual data entry",
+                    "Inconsistent business processes",
+                    "Apps that don't talk to each other"
+                ],
+                features: [
+                    "Visual Workflow Builder", "AI-Assisted 'Recipe' Suggestions", "Approval & Logic Gates (If/Then)", "Webhooks & API Triggers",
+                    "Detailed Audit Logs", "Scheduled & Instant Triggers", "Team Collaboration", "Error Handling & Retries"
+                ],
+                screenshots: [
+                    "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHx3b3JrZmxvdyUyMGF1dG9tYXRpb258ZW58MHx8fHwxNzMwMzA2OTYwfDA&ixlib=rb-4.0.3&q=85&w=600",
+                    "https://placehold.co/600x400/111827/0FF4C6?text=Visual+Builder",
+                    "https://placehold.co/600x400/111827/0FF4C6?text=Integration+Map"
+                ],
+                 integrations: [
+                    { name: "Gmail", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Gmail" },
+                    { name: "Slack", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Slack" },
+                    { name: "Jira", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Jira" },
+                    { name: "Trello", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Trello" },
+                    { name: "GitHub", logo: "https://placehold.co/100x40/111827/FFFFFF?text=GitHub" }
+                ],
+                caseStudies: [
+                    {
+                        company: "LogicFlow",
+                        metric: "98% Reduction",
+                        quote: "We automated our entire client onboarding sequence with Quantum. What took 3 days now takes 5 minutes."
+                    },
+                    {
+                        company: "FinanceCo",
+                        metric: "100% Accuracy",
+                        quote: "Monthly invoice processing is now fully automated, eliminating human error and saving our finance team 40 hours a month."
+                    }
+                ]
+            },
+            "aegis": {
+                name: "Aegis Security Suite",
+                tagline: "Proactive, AI-driven threat defense.",
+                price: "Starts at $149/mo",
+                category: "security",
+                featured: true,
+                image: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwZGFzaGJvYXJkfGVufDB8fHx8MTczMDMwNzAxMXww&ixlib=rb-4.0.3&q=85&w=600",
+                benefits: [
+                    "24/7 autonomous monitoring",
+                    "AI-powered threat detection",
+                    "Automated compliance reporting"
+                ],
+                overview: "Aegis is your autonomous security operations center. It monitors your entire tech stack—from cloud infrastructure to employee endpoints—24/7. Our AI engine doesn't just look for known threats; it learns your network's normal behavior and instantly neutralizes anomalies, stopping breaches before they start. Sleep better at night knowing Aegis is on guard.",
+                problems: [
+                    "Overwhelming number of security alerts",
+                    "Slow manual threat investigation",
+                    "Struggling to meet compliance (SOC 2, GDPR)"
+                ],
+                features: [
+                    "AI Anomaly Detection", "Endpoint Detection & Response (EDR)", "Cloud Security Posture Management (CSPM)", "Automated Compliance Audits (SOC 2, ISO, GDPR)",
+                    "Phishing & Malware Neutralization", "Vulnerability Scanning", "Incident Response Playbooks", "Global Threat Intelligence Feed"
+                ],
+                screenshots: [
+                    "https://images.unsplash.com/photo-1563206767-5b18f218e8de?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwZGFzaGJvYXJkfGVufDB8fHx8MTczMDMwNzAxMXww&ixlib=rb-4.0.3&q=85&w=600",
+                    "https://placehold.co/600x400/111827/FF6B6B?text=Threat+Map",
+                    "https://placehold.co/600x400/111827/FF6B6B?text=Compliance+Report"
+                ],
+                 integrations: [
+                    { name: "AWS", logo: "https://placehold.co/100x40/111827/FFFFFF?text=AWS" },
+                    { name: "Azure", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Azure" },
+                    { name: "GCP", logo: "https://placehold.co/100x40/111827/FFFFFF?text=GCP" },
+                    { name: "Okta", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Okta" },
+                    { name: "CrowdStrike", logo: "https://placehold.co/100x40/111827/FFFFFF?text=CrowdStrike" }
+                ],
+                caseStudies: [
+                    {
+                        company: "Fintech Secure",
+                        metric: "99.7% Faster",
+                        quote: "Aegis cut our mean-time-to-detection (MTTD) from 48 hours to just 5 minutes. It's a game-changer for our compliance."
+                    },
+                    {
+                        company: "HealthData",
+                        metric: "Zero Breaches",
+                        quote: "Since implementing Aegis, we've had zero critical incidents and passed our HIPAA audit with flying colors."
+                    }
+                ]
+            },
+            "synapse": {
+                name: "Synapse Cloud",
+                tagline: "Scalable infrastructure that just works.",
+                price: "Usage-based",
+                category: "cloud",
+                featured: true,
+                image: "https://images.unsplash.com/photo-1511376777868-611b54f68947?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGluZnJhc3RydWN0dXJlfGVufDB8fHx8MTczMDMwNzAzM3ww&ixlib-rb-4.0.3&q=85&w=600",
+                benefits: [
+                    "Globally distributed network",
+                    "Pay-as-you-go pricing",
+                    "99.999% uptime SLA"
+                ],
+                overview: "Synapse is the intelligent infrastructure layer for your applications. We handle the complexity of global scaling, so you can focus on building. With 30+ data centers worldwide and AI-powered load balancing, your application runs fast and resiliently everywhere. Get the power of a major cloud provider with the simplicity and support of a startup.",
+                problems: [
+                    "High, unpredictable cloud bills",
+                    "Slow performance for international users",
+                    "Complex DevOps and scaling challenges"
+                ],
+                features: [
+                    "Global Edge Network (30+ PoPs)", "AI-Powered Load Balancing", "Serverless Functions", "Managed Kubernetes",
+                    "DDoS Protection", "Object Storage", "Managed Databases (SQL/NoSQL)", "One-Click App Deployment"
+                ],
+                screenshots: [
+                    "https://images.unsplash.com/photo-1511376777868-611b54f68947?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGluZnJhc3RydWN0dXJlfGVufDB8fHx8MTczMDMwNzAzM3ww&ixlib=rb-4.0.3&q=85&w=600",
+                    "https://placehold.co/600x400/111827/FFFFFF?text=Global+Map",
+                    "https://placehold.co/600x400/111827/FFFFFF?text=Cost+Dashboard"
+                ],
+                 integrations: [
+                    { name: "Terraform", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Terraform" },
+                    { name: "Ansible", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Ansible" },
+                    { name: "Docker", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Docker" },
+                    { name: "Kubernetes", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Kubernetes" },
+                    { name: "Datadog", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Datadog" }
+                ],
+                caseStudies: [
+                    {
+                        company: "PixelStream",
+                        metric: "60% Cost Savings",
+                        quote: "We moved our video streaming backend to Synapse and cut our cloud bill by over 60% without sacrificing performance."
+                    },
+                    {
+                        company: "SaaS.io",
+                        metric: "80ms Latency",
+                        quote: "Synapse's global edge network means our app is fast for all our users, whether they're in Tokyo or Texas."
+                    }
+                ]
+            },
+            // Adding a couple more "All Products"
+             "clarity": {
+                name: "Clarity CX",
+                tagline: "AI-powered customer support.",
+                price: "Starts at $49/mo",
+                category: "automation",
+                featured: false,
+                image: "https://placehold.co/600x400/111827/0FF4C6?text=Clarity+CX",
+                benefits: [
+                    "AI chatbots that solve issues",
+                    "Sentiment analysis on tickets",
+                    "Unified customer timeline"
+                ],
+                overview: "Clarity CX is your AI-powered customer support hub. It unifies conversations from email, chat, and social media into one timeline. Our AI bots can resolve up to 70% of common inquiries, freeing your human agents to handle complex issues. Analyze sentiment across all tickets to understand what your customers truly feel.",
+                problems: [
+                    "Slow support response times",
+                    "Repetitive questions bogging down agents",
+                    "No clear view of customer sentiment"
+                ],
+                features: ["AI Chatbot Builder", "Unified Inbox", "Sentiment Analysis", "Macros & Canned Responses", "Help Center Builder", "CSAT & NPS Surveys"],
+                screenshots: ["https://placehold.co/600x400/111827/0FF4C6?text=Support+Inbox", "https://placehold.co/600x400/111827/0FF4C6?text=Bot+Builder", "https://placehold.co/600x400/111827/0FF4C6?text=Sentiment+Dashboard"],
+                integrations: [
+                    { name: "Salesforce", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Salesforce" },
+                    { name: "Jira", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Jira" },
+                    { name: "Slack", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Slack" }
+                ],
+                caseStudies: [
+                    { company: "E-Shop", metric: "+70% Resolution", quote: "Clarity's AI bot resolves 7 out of 10 incoming chats, letting our team focus on high-value customers." },
+                    { company: "MobileGame", metric: "+20pt CSAT", quote: "Our CSAT score jumped 20 points because our agents can now respond faster and with more context." }
+                ]
+            },
+            "vault": {
+                name: "Vault Data",
+                tagline: "Secure, compliant data warehousing.",
+                price: "Usage-based",
+                category: "data",
+                featured: false,
+                image: "https://placehold.co/600x400/111827/FFFFFF?text=Vault",
+                benefits: [
+                    "SOC 2 & HIPAA Compliant",
+                    "Infinitely scalable storage",
+                    "Zero-ETL integration"
+                ],
+                overview: "Vault is the data warehouse built for the security-conscious enterprise. It offers petabyte-scale storage with ironclad compliance (SOC 2, HIPAA, GDPR) built-in. Our zero-ETL integration with Nexus Dashboard means your data is analysis-ready the moment it arrives, with no complex pipelines to build or maintain.",
+                problems: [
+                    "Data compliance and residency burdens",
+                    "Slow, complex ETL pipelines",
+                    "Data warehouse scaling limits"
+                ],
+                features: ["Scalable Columnar Storage", "Zero-ETL", "HIPAA/SOC 2/GDPR Compliant", "Data Lineage Tracking", "Row-level Security", "Automated Data Masking"],
+                screenshots: ["https://placehold.co/600x400/111827/FFFFFF?text=Data+Schema", "https://placehold.co/600x400/111827/FFFFFF?text=Compliance+View", "https://placehold.co/600x400/111827/FFFFFF?text=Query+Editor"],
+                integrations: [
+                    { name: "Nexus", logo: "https://placehold.co/100x40/111827/0FF4C6?text=Nexus" },
+                    { name: "AWS S3", logo: "https://placehold.co/100x40/111827/FFFFFF?text=S3" },
+                    { name: "Fivetran", logo: "https://placehold.co/100x40/111827/FFFFFF?text=Fivetran" }
+                ],
+                caseStudies: [
+                    { company: "HealthData", metric: "100% Compliant", quote: "Vault is the only solution we found that could handle our scale while guaranteeing HIPAA compliance." },
+                    { company: "FinanceCo", metric: "24h to 2min", quote: "Our data pipeline went from a 24-hour batch job to near real-time, thanks to Vault's zero-ETL integration." }
+                ]
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Progressive Enhancement Check ---
+            document.documentElement.classList.remove('no-js');
+            document.documentElement.classList.add('js');
+
+            // --- AOS Initialization ---
+            AOS.init({
+                once: true,
+                duration: 800,
+                easing: 'ease-out-quad',
+            });
+
+            // --- Navbar Scroll Effect ---
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('glass-nav');
+                } else {
+                    header.classList.remove('glass-nav');
+                }
+            });
+
+            // --- Mobile Menu Toggle ---
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Footer Current Year ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // --- Product Rendering ---
+            const featuredGrid = document.getElementById('featured-grid');
+            const allProductsGrid = document.getElementById('all-products-grid');
+
+            const createProductCardHTML = (product, id) => {
+                return `
+                    <div class="product-card-wrapper">
+                        <div class="product-card bg-brand-card rounded-xl overflow-hidden shadow-lg border border-white/10 h-full flex flex-col transition-all duration-300 transform hover:-translate-y-1 hover:shadow-glow hover:border-brand-accent">
+                            <div class="overflow-hidden h-48">
+                                <img src="${product.image}" alt="${product.name}" class="product-card-image w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="p-6 flex-grow">
+                                <h3 class="font-heading text-2xl font-semibold">${product.name}</h3>
+                                <p class="mt-2 text-gray-400 text-sm">${product.tagline}</p>
+                                <ul class="mt-4 space-y-2 text-gray-300">
+                                    ${product.benefits.map(benefit => `
+                                        <li class="flex items-start gap-2">
+                                            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                            <span>${benefit}</span>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                            <div class="p-6 pt-0 flex justify-between items-center">
+                                <span class="text-sm font-semibold text-brand-accent">${product.price}</span>
+                                <button class="product-open-btn text-white hover:text-brand-accent font-semibold" data-product-id="${id}">
+                                    Learn More &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            };
+
+            const renderProducts = (filters = {}) => {
+                featuredGrid.innerHTML = '';
+                allProductsGrid.innerHTML = '';
+
+                // Simple filtering logic (stub)
+                const filterCategory = filters.category;
+                const filterPricing = filters.pricing;
+                const searchQuery = filters.search ? filters.search.toLowerCase() : '';
+
+                Object.keys(productData).forEach(id => {
+                    const product = productData[id];
+
+                    // Filter logic
+                    if (filterCategory && filterCategory !== 'all' && product.category !== filterCategory) {
+                        return;
+                    }
+                    if (filterPricing) {
+                        if (filterPricing === 'free' && product.price.toLowerCase() !== 'free') return;
+                        if (filterPricing === 'paid' && product.price.toLowerCase() === 'free') return;
+                    }
+                    if (searchQuery && !product.name.toLowerCase().includes(searchQuery) && !product.tagline.toLowerCase().includes(searchQuery)) {
+                        return;
+                    }
+
+                    const cardHTML = createProductCardHTML(product, id);
+                    
+                    // Add to appropriate grid
+                    if (product.featured) {
+                        featuredGrid.innerHTML += cardHTML;
+                    } else {
+                        allProductsGrid.innerHTML += cardHTML;
+                    }
+                });
+
+                // Re-attach listeners after rendering
+                attachModalListeners();
+            };
+
+            // --- Product Modal Logic ---
+            const modal = document.getElementById('product-modal');
+            const modalContent = document.getElementById('modal-content');
+            const modalScrollContent = document.getElementById('modal-scroll-content');
+            const closeBtn = document.getElementById('modal-close-btn');
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+            let lastFocusedElement;
+
+            const openModal = (productId) => {
+                const product = productData[productId];
+                if (!product) return;
+
+                lastFocusedElement = document.activeElement; // For accessibility
+
+                // 1. Populate Header
+                document.getElementById('modal-image').src = product.image;
+                document.getElementById('modal-image').alt = product.name;
+                document.getElementById('modal-title').textContent = product.name;
+                document.getElementById('modal-tagline').textContent = product.tagline;
+
+                // 2. Populate Overview Tab
+                document.getElementById('modal-overview-desc').textContent = product.overview;
+                document.getElementById('modal-problems-list').innerHTML = product.problems.map(problem => `
+                    <li class="flex items-start gap-2 text-gray-300">
+                        <svg class="w-5 h-5 text-brand-cta flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                        <span>${problem}</span>
+                    </li>
+                `).join('');
+                document.getElementById('modal-screenshots-grid').innerHTML = product.screenshots.map(src => `
+                    <img src="${src}" alt="${product.name} screenshot" class="rounded-lg w-full h-auto object-cover border border-white/10" loading="lazy">
+                `).join('');
+
+                // 3. Populate Features Tab
+                document.getElementById('modal-features-list').innerHTML = product.features.map(feature => `
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-300">${feature}</span>
+                    </li>
+                `).join('');
+
+                // 4. Populate Integrations Tab
+                document.getElementById('modal-integrations-list').innerHTML = product.integrations.map(int => `
+                    <img src="${int.logo}" alt="${int.name}" class="h-10 grayscale opacity-70" title="${int.name}">
+                `).join('');
+                
+                // 5. Populate Case Studies
+                document.getElementById('modal-case-studies').innerHTML = product.caseStudies.map(study => `
+                    <div class="bg-brand-card/70 p-6 rounded-lg border border-white/10">
+                        <p class="font-heading text-3xl font-bold text-brand-accent">${study.metric}</p>
+                        <p class="mt-2 text-gray-300 italic">"${study.quote}"</p>
+                        <p class="mt-4 text-sm font-semibold text-white">- ${study.company}</p>
+                    </div>
+                `).join('');
+
+                // 6. Populate Pricing
+                document.getElementById('modal-pricing-snapshot').innerHTML = `
+                    <div class="text-center md:text-left">
+                        <h4 class="font-heading text-2xl font-semibold">Start with ${product.name}</h4>
+                        <p class="text-brand-accent text-lg font-medium">${product.price}</p>
+                    </div>
+                    <a href="#" class="bg-brand-accent text-brand-bg font-bold py-3 px-6 rounded-lg text-lg transition-all duration-300 shadow-glow hover:shadow-none">
+                        Start Free Trial
+                    </a>
+                `;
+
+                // 7. Reset tabs and scroll
+                resetTabs();
+                modalScrollContent.scrollTop = 0;
+
+                // 8. Show modal
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                gsap.to(modalContent, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' });
+                closeBtn.focus(); // Focus close button
+            };
+
+            const closeModal = () => {
+                gsap.to(modalContent, { opacity: 0, y: 20, duration: 0.2, ease: 'power2.in', onComplete: () => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    if (lastFocusedElement) {
+                        lastFocusedElement.focus(); // Return focus
+                    }
+                }});
+            };
+
+            // Attach listeners to dynamically created buttons
+            const attachModalListeners = () => {
+                document.querySelectorAll('.product-open-btn').forEach(btn => {
+                    // Remove old listener to prevent duplicates
+                    btn.replaceWith(btn.cloneNode(true));
+                });
+                // Add new listeners
+                document.querySelectorAll('.product-open-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        openModal(e.currentTarget.dataset.productId);
+                    });
+                });
+            };
+
+            // Modal close events
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) { // Click on overlay
+                    closeModal();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+
+            // Modal Tab switching
+            const resetTabs = () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabPanels.forEach(panel => panel.classList.add('hidden'));
+                tabButtons[0].classList.add('active');
+                tabPanels[0].classList.remove('hidden');
+            };
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const tabName = button.dataset.tab;
+                    tabPanels.forEach(panel => {
+                        if (panel.id === `tab-${tabName}`) {
+                            panel.classList.remove('hidden');
+                        } else {
+                            panel.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Accessibility: Focus Trap for Modal
+            modal.addEventListener('keydown', (e) => {
+                if (e.key !== 'Tab') return;
+                
+                const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+                const modalFocusables = [...modalContent.querySelectorAll(focusableElements)];
+                const firstFocusable = modalFocusables[0];
+                const lastFocusable = modalFocusables[modalFocusables.length - 1];
+
+                if (e.shiftKey) { // Shift + Tab
+                    if (document.activeElement === firstFocusable) {
+                        lastFocusable.focus();
+                        e.preventDefault();
+                    }
+                } else { // Tab
+                    if (document.activeElement === lastFocusable) {
+                        firstFocusable.focus();
+                        e.preventDefault();
+                    }
+                }
+            });
+            
+            // --- Filtering ---
+            const searchInput = document.getElementById('search-product');
+            const categoryInput = document.getElementById('filter-category');
+            const pricingInput = document.getElementById('filter-pricing');
+            
+            const handleFilterChange = () => {
+                const filters = {
+                    search: searchInput.value,
+                    category: categoryInput.value,
+                    pricing: pricingInput.value
+                };
+                console.log('Filtering by:', filters); // For demo
+                renderProducts(filters);
+            };
+            
+            searchInput.addEventListener('input', handleFilterChange);
+            categoryInput.addEventListener('change', handleFilterChange);
+            pricingInput.addEventListener('change', handleFilterChange);
+
+            // --- Initial Render ---
+            renderProducts();
+
+        });
+    </script>
+
+</body>
+</html>

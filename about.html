@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Tags -->
+    <title>About Innovato | Our Mission, Story, and Team</title>
+    <meta name="description" content="Meet the team behind Innovato. Learn about our story, our mission to redefine B2B workflows, and the values that drive our culture of innovation.">
+    <link rel="canonical" href="https://innovato.com/about">
+    
+    <!-- OG Meta -->
+    <meta property="og:title" content="About Innovato | Our Mission, Story, and Team">
+    <meta property="og:description" content="Learn about our story, our mission to redefine B2B workflows, and the values that drive us.">
+    <meta property="og:image" content="https://placehold.co/1200x630/0A0F1F/0FF4C6?text=Our+Story">
+    <meta property="og:url" content="https://innovato.com/about">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon (Inline SVG) - Same as Home Page -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🚀</text></svg>">
+
+    <!-- Fonts: Poppins (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Animation Libraries CSS (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config (Same as Home Page) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Brand Colors from Prompt
+                        'brand-bg': '#0A0F1F',
+                        'brand-card': '#111827',
+                        'brand-accent': '#0FF4C6',
+                        'brand-cta': '#FF6B6B',
+                        'brand-parchment': '#f7f3e9', // Soft parchment background
+                    },
+                    fontFamily: {
+                        // Fonts from Prompt
+                        'sans': ['Inter', 'sans-serif'],
+                        'heading': ['Poppins', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        // Neon Glow Effects
+                        'glow': '0 0 15px 0 rgba(15, 244, 198, 0.4)',
+                        'glow-cta': '0 0 20px 0 rgba(255, 107, 107, 0.6)',
+                    },
+                    animation: {
+                        'marquee': 'marquee 40s linear infinite',
+                    },
+                    keyframes: {
+                        'marquee': {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' }, // Translate by half width for seamless loop
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Base styles */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Glassmorphism for Navbar */
+        .glass-nav {
+            background-color: rgba(10, 15, 31, 0.7); /* brand-bg w/ transparency */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom-width: 1px;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Custom scrollbar for timeline */
+        .timeline-scrollbar::-webkit-scrollbar {
+            height: 8px;
+        }
+        .timeline-scrollbar::-webkit-scrollbar-track {
+            background: #111827; /* brand-card */
+            border-radius: 10px;
+        }
+        .timeline-scrollbar::-webkit-scrollbar-thumb {
+            background: #0FF4C6; /* brand-accent */
+            border-radius: 10px;
+        }
+        .timeline-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #0ddaa8;
+        }
+
+        /* AOS Fallback (Progressive Enhancement) */
+        [data-aos] {
+            opacity: 0;
+            transition-property: transform, opacity;
+        }
+        .no-js [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-bg text-white font-sans">
+
+    <!-- === Header / Navbar === -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2" aria-label="Innovato Home">
+                <!-- Placeholder SVG Logo -->
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 0L32 9.2376L24 28.7624L8 28.7624L0 9.2376L16 0Z" fill="#0FF4C6"/>
+                    <path d="M16 7.38992L26.3923 13.1188L20.8 24.8812H11.2L5.60771 13.1188L16 7.38992Z" fill="#0A0F1F"/>
+                </svg>
+                <span class="font-heading font-bold text-2xl text-white">Innovato</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <ul class="hidden md:flex items-center space-x-8">
+                <li><a href="index.html#features" class="text-gray-300 hover:text-brand-accent transition-colors">Features</a></li>
+                <li><a href="product.html" class="text-gray-300 hover:text-brand-accent transition-colors">Solutions</a></li>
+                <li><a href="pricing.html" class="text-gray-300 hover:text-brand-accent transition-colors">Pricing</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-brand-accent transition-colors">Reviews</a></li>
+                <li><a href="contact.html" class="text-brand-accent font-semibold">Contact</a></li>
+            </ul>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="#" class="hidden sm:inline-block bg-brand-cta hover:bg-opacity-80 text-white font-semibold py-2 px-5 rounded-lg transition-all duration-300 shadow-glow-cta hover:shadow-none">
+                    Get Started
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-gray-300 hover:text-white hover:bg-brand-card" aria-label="Toggle menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden glass-nav shadow-lg">
+            <ul class="flex flex-col space-y-4 p-4">
+                <li><a href="index.html#features" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Features</a></li>
+                <li><a href="index.html#products" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Solutions</a></li>
+                <li><a href="pricing.html" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Pricing</a></li>
+                <li><a href="#" class="block text-gray-300 hover:text-brand-accent transition-colors py-2">Reviews</a></li>
+                <li><a href="about.html" class="block text-brand-accent font-semibold py-2">Contact</a></li>
+                <li>
+                    <a href="#" class="block bg-brand-cta text-white font-semibold py-2 px-5 rounded-lg text-center mt-2">
+                        Get Started
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- === Main Content === -->
+    <main>
+
+        <!-- === About Hero Section === -->
+        <section class="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden pt-20">
+            <!-- Parallax Background Image -->
+            <img 
+                id="about-hero-image"
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHw1fHx0ZWFtJTIwbWVldGluZyUyMG1vZGVybnxlbnwwfHx8fDE3MzAzMDQ0ODZ8MA&ixlib=rb-4.0.3&q=85&w=1920" 
+                alt="The Innovato team in a modern office discussion"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="eager"
+            >
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-brand-bg/70"></div>
+            
+            <!-- Hero Content -->
+            <div class="relative z-10 container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center" style="opacity:0;" id="hero-content">
+                <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight">
+                    We're building the new standard for work.
+                </h1>
+                <a href="#mission" class="mt-8 inline-block border-2 border-brand-accent text-brand-accent font-semibold py-3 px-8 rounded-lg text-lg transition-all duration-300 hover:bg-brand-accent hover:text-brand-bg hover:shadow-glow">
+                    Our Story &darr;
+                </a>
+            </div>
+        </section>
+
+        <!-- === Mission Statement Block === -->
+        <section id="mission" class="py-20 md:py-32">
+            <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+                <!-- Warm Parchment Panel -->
+                <div class="bg-brand-parchment text-brand-bg rounded-2xl p-10 md:p-16 text-center shadow-lg">
+                    <h2 class="font-heading text-4xl sm:text-5xl font-bold text-brand-bg">Our Mission</h2>
+                    <p class="mt-6 text-xl md:text-2xl text-gray-800 max-w-3xl mx-auto leading-relaxed">
+                        To empower every organization with intelligent, secure, and scalable tools that eliminate complexity, unlocking human potential and accelerating innovation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Interactive Timeline === -->
+        <section class="py-20 md:py-32 bg-brand-card/50 overflow-hidden">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="font-heading text-4xl sm:text-5xl font-bold">The Innovato Journey</h2>
+                    <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">From a simple idea to a globally-trusted platform, our story is one of persistent innovation.</p>
+                </div>
+
+                <div class="relative">
+                    <!-- Timeline Controls (Keyboard Accessible) -->
+                    <button id="timeline-prev" class="absolute -left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-brand-accent/80 hover:bg-brand-accent text-brand-bg hidden md:block" aria-label="Previous timeline item">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button id="timeline-next" class="absolute -right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-brand-accent/80 hover:bg-brand-accent text-brand-bg hidden md:block" aria-label="Next timeline item">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+
+                    <!-- Horizontal Scroll Container -->
+                    <div id="timeline-container" class="flex overflow-x-auto pb-8 timeline-scrollbar" data-aos="fade-up" role="listbox" aria-label="Innovato Timeline">
+                        <!-- 
+                            Timeline items will be loaded from about-content.json
+                            See script tag at bottom for sample data structure
+                        -->
+                        
+                        <!-- Timeline Item 1 (Sample Structure) -->
+                        <div class="flex-shrink-0 w-80 md:w-96 p-4" role="option">
+                            <div class="bg-brand-card h-full rounded-xl p-6 border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-glow hover:border-brand-accent">
+                                <span class="font-heading text-4xl font-bold text-brand-accent">2021</span>
+                                <h3 class="mt-4 font-heading text-xl font-semibold">The Idea</h3>
+                                <p class="mt-2 text-gray-400">Innovato is born from a single question: "Why is business software still so complicated?" The first lines of code are written.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Item 2 -->
+                        <div class="flex-shrink-0 w-80 md:w-96 p-4" role="option">
+                            <div class="bg-brand-card h-full rounded-xl p-6 border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-glow hover:border-brand-accent">
+                                <span class="font-heading text-4xl font-bold text-brand-accent">2022</span>
+                                <h3 class="mt-4 font-heading text-xl font-semibold">Nexus AI Launch</h3>
+                                <p class="mt-2 text-gray-400">Our first product, Nexus AI, launches in beta, gaining 100+ early adopters in just two months.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 3 -->
+                        <div class="flex-shrink-0 w-80 md:w-96 p-4" role="option">
+                            <div class="bg-brand-card h-full rounded-xl p-6 border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-glow hover:border-brand-accent">
+                                <span class="font-heading text-4xl font-bold text-brand-accent">2023</span>
+                                <h3 class="mt-4 font-heading text-xl font-semibold">Series A Funding</h3>
+                                <p class="mt-2 text-gray-400">$15M in funding secured to expand our security offerings and scale the engineering team.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Item 4 -->
+                        <div class="flex-shrink-0 w-80 md:w-96 p-4" role="option">
+                            <div class="bg-brand-card h-full rounded-xl p-6 border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-glow hover:border-brand-accent">
+                                <span class="font-heading text-4xl font-bold text-brand-accent">2024</span>
+                                <h3 class="mt-4 font-heading text-xl font-semibold">Shield & Automata</h3>
+                                <p class="mt-2 text-gray-400">We launch two new products, Shield Security and Automata, creating a true B2B suite.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 5 -->
+                        <div class="flex-shrink-0 w-80 md:w-96 p-4" role="option">
+                            <div class="bg-brand-card h-full rounded-xl p-6 border border-white/10 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-glow hover:border-brand-accent">
+                                <span class="font-heading text-4xl font-bold text-brand-accent">2025</span>
+                                <h3 class="mt-4 font-heading text-xl font-semibold">Global Expansion</h3>
+                                <p class="mt-2 text-gray-400">Innovato opens its first international office in London and surpasses 2,000 active teams worldwide.</p>
+                            </div>
+                        </div>
+                        <!-- End Timeline Items -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Our Values === -->
+        <section class="py-20 md:py-32">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="font-heading text-4xl sm:text-5xl font-bold">Our Core Values</h2>
+                    <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">These aren't just words on a wall. They're the principles that guide every decision we make.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Value Card 1 -->
+                    <div class="bg-brand-card rounded-2xl p-8 border border-white/10" data-aos="fade-up" data-aos-delay="100">
+                        <div class="p-3 bg-brand-accent/10 rounded-lg inline-block">
+                            <!-- Icon: User -->
+                            <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        </div>
+                        <h3 class="mt-6 font-heading text-2xl font-semibold">Customer-Obsessed</h3>
+                        <p class="mt-3 text-gray-300">We build for our customers, not for ourselves. Their success is our success, and their feedback is our roadmap.</p>
+                        <p class="mt-3 text-sm text-gray-500 italic">Example: Our engineers join support calls weekly to hear directly from users.</p>
+                    </div>
+
+                    <!-- Value Card 2 -->
+                    <div class="bg-brand-card rounded-2xl p-8 border border-white/10" data-aos="fade-up" data-aos-delay="200">
+                        <div class="p-3 bg-brand-accent/10 rounded-lg inline-block">
+                            <!-- Icon: Zap -->
+                            <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="mt-6 font-heading text-2xl font-semibold">Boldly Curious</h3>
+                        <p class="mt-3 text-gray-300">We challenge the status quo and ask "what if?" Curiosity drives us to find better, faster, and smarter solutions to hard problems.</p>
+                        <p class="mt-3 text-sm text-gray-500 italic">Example: We host monthly 'Hack Days' where anyone can build and pitch a new idea.</p>
+                    </div>
+
+                    <!-- Value Card 3 -->
+                    <div class="bg-brand-card rounded-2xl p-8 border border-white/10" data-aos="fade-up" data-aos-delay="300">
+                        <div class="p-3 bg-brand-accent/10 rounded-lg inline-block">
+                            <!-- Icon: Lock (using a different one for variety) -->
+                            <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="mt-6 font-heading text-2xl font-semibold">Own with Integrity</h3>
+                        <p class="mt-3 text-gray-300">We act with transparency and accountability. We do the right thing, especially when it's hard, and we own our outcomes.</p>
+                        <p class="mt-3 text-sm text-gray-500 italic">Example: We publish our security audits and uptime data publicly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Leadership Carousel === -->
+        <section class="py-20 md:py-32 bg-brand-card/50 overflow-hidden">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="font-heading text-4xl sm:text-5xl font-bold">Meet Our Leadership</h2>
+                </div>
+
+                <div class="relative" id="leader-carousel-wrapper" data-aos="fade-up">
+                    <div class="flex" id="leader-carousel-track" role="listbox" aria-label="Leadership Team">
+                        <!-- 
+                            Leader cards will be loaded from about-content.json
+                            See script tag at bottom for sample data structure
+                        -->
+                        
+                        <!-- Leader Card 1 (Sample Structure) -->
+                        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4" role="option">
+                            <div class="bg-brand-card rounded-xl p-8 text-center border border-white/10 h-full">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMGZlbWFsZSUyMHByb2Zlc3Npb25hbHxlbnwwfHx8fDE3MzAzMDQ1MTl8MA&ixlib=rb-4.0.3&q=85&w=200" 
+                                    alt="Portrait of Dr. Aris Thorne"
+                                    class="w-48 h-48 rounded-full mx-auto object-cover border-4 border-brand-accent"
+                                >
+                                <h3 class="mt-6 font-heading text-2xl font-semibold">Dr. Aris Thorne</h3>
+                                <p class="mt-1 text-brand-accent">CEO & Co-Founder</p>
+                                <p class="mt-4 text-gray-400 italic text-sm">"We're not just building tools; we're building the foundation for the next industrial revolution."</p>
+                                <button class="mt-4 text-brand-accent font-semibold bio-modal-open" data-bio-id="1" aria-haspopup="dialog">
+                                    Read Bio &rarr;
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Leader Card 2 -->
+                        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4" role="option">
+                            <div class="bg-brand-card rounded-xl p-8 text-center border border-white/10 h-full">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMG1hbGUlMjBwcm9mZXNzaW9uYWx8ZW58MHx8fHwxNzMwMzA0NTMxfDA&ixlib=rb-4.0.3&q=85&w=200"
+                                    alt="Portrait of Kenji Tanaka"
+                                    class="w-48 h-48 rounded-full mx-auto object-cover border-4 border-brand-accent/50"
+                                >
+                                <h3 class="mt-6 font-heading text-2xl font-semibold">Kenji Tanaka</h3>
+                                <p class="mt-1 text-brand-accent">CTO & Co-Founder</p>
+                                <p class="mt-4 text-gray-400 italic text-sm">"The most elegant code is the one that disappears, letting the user's creativity flow."</p>
+                                <button class="mt-4 text-brand-accent font-semibold bio-modal-open" data-bio-id="2" aria-haspopup="dialog">
+                                    Read Bio &rarr;
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Leader Card 3 -->
+                        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4" role="option">
+                            <div class="bg-brand-card rounded-xl p-8 text-center border border-white/10 h-full">
+                                <img 
+                                    src="https://placehold.co/200x200/111827/FF6B6B?text=CSO" 
+                                    alt="Portrait of Maya Singh"
+                                    class="w-48 h-48 rounded-full mx-auto object-cover border-4 border-brand-accent/50"
+                                >
+                                <h3 class="mt-6 font-heading text-2xl font-semibold">Maya Singh</h3>
+                                <p class="mt-1 text-brand-accent">Chief Security Officer</p>
+                                <p class="mt-4 text-gray-400 italic text-sm">"In the new economy, trust isn't given; it's encrypted, verified, and earned every second."</p>
+                                <button class="mt-4 text-brand-accent font-semibold bio-modal-open" data-bio-id="3" aria-haspopup="dialog">
+                                    Read Bio &rarr;
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Leader Card 4 (Sample) -->
+                        <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4" role="option">
+                            <div class="bg-brand-card rounded-xl p-8 text-center border border-white/10 h-full">
+                                <img 
+                                    src="https://placehold.co/200x200/111827/FFFFFF?text=CPO" 
+                                    alt="Portrait of Elena Rodriguez"
+                                    class="w-48 h-48 rounded-full mx-auto object-cover border-4 border-brand-accent/50"
+                                >
+                                <h3 class="mt-6 font-heading text-2xl font-semibold">Elena Rodriguez</h3>
+                                <p class="mt-1 text-brand-accent">Chief Product Officer</p>
+                                <p class="mt-4 text-gray-400 italic text-sm">"We aren't just shipping features. We are solving complex problems for real people."</p>
+                                <button class="mt-4 text-brand-accent font-semibold bio-modal-open" data-bio-id="4" aria-haspopup="dialog">
+                                    Read Bio &rarr;
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Cards will be duplicated by JS for marquee -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Meet the Team Grid === -->
+        <section class="py-20 md:py-32">
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="font-heading text-4xl sm:text-5xl font-bold">Meet the Innovators</h2>
+                    <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">The brilliant minds turning complex problems into simple solutions.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="text-center transition-all duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="https://placehold.co/300x300/111827/FFFFFF?text=Team" alt="Portrait of Alex Chen" class="w-full h-auto rounded-full object-cover aspect-square border-2 border-white/20">
+                        <h4 class="mt-4 font-heading font-semibold text-lg">Alex Chen</h4>
+                        <span class="inline-block bg-brand-accent/10 text-brand-accent text-xs font-semibold px-2 py-0.5 rounded-full mt-1">AI Research</span>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="text-center transition-all duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="150">
+                        <img src="https://placehold.co/300x300/111827/FFFFFF?text=Team" alt="Portrait of Jasmine K." class="w-full h-auto rounded-full object-cover aspect-square border-2 border-white/20">
+                        <h4 class="mt-4 font-heading font-semibold text-lg">Jasmine K.</h4>
+                        <span class="inline-block bg-brand-accent/10 text-brand-accent text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Product</span>
+                    </div>
+                    <!-- Team Member 3 -->
+                    <div class="text-center transition-all duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="https://placehold.co/300x300/111827/FFFFFF?text=Team" alt="Portrait of David Lee" class="w-full h-auto rounded-full object-cover aspect-square border-2 border-white/20">
+                        <h4 class="mt-4 font-heading font-semibold text-lg">David Lee</h4>
+                        <span class="inline-block bg-brand-accent/10 text-brand-accent text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Engineering</span>
+                    </div>
+                    <!-- Team Member 4 -->
+                    <div class="text-center transition-all duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="250">
+                        <img src="https://placehold.co/300x300/111827/FFFFFF?text=Team" alt="Portrait of Sarah Jenkins" class="w-full h-auto rounded-full object-cover aspect-square border-2 border-white/20">
+                        <h4 class="mt-4 font-heading font-semibold text-lg">Sarah Jenkins</h4>
+                        <span class="inline-block bg-brand-accent/10 text-brand-accent text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Customer Success</span>
+                    </div>
+                    <!-- Team Member 5 -->
+                    <div class="text-center transition-all duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="https://placehold.co/300x300/111827/FFFFFF?text=Team" alt="Portrait of Mikey T." class="w-full h-auto rounded-full object-cover aspect-square border-2 border-white/20">
+                        <h4 class="mt-4 font-heading font-semibold text-lg">Mikey T.</h4>
+                        <span class="inline-block bg-brand-accent/10 text-brand-accent text-xs font-semibold px-2 py-0.5 rounded-full mt-1">UX/UI Design</span>
+                    </div>
+                    <!-- Team Member 6 -->
+                    <div class="text-center transition-all duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="350">
+                        <img src="https://placehold.co/300x300/111827/FFFFFF?text=Team" alt="Portrait of Ben Carter" class="w-full h-auto rounded-full object-cover aspect-square border-2 border-white/20">
+                        <h4 class="mt-4 font-heading font-semibold text-lg">Ben Carter</h4>
+                        <span class="inline-block bg-brand-accent/10 text-brand-accent text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Marketing</span>
+                    </div>
+                    <!-- Team Member 7 -->
+                    <div class="text-center transition-all duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="400">
+                        <img src="https://placehold.co/300x300/111827/FFFFFF?text=Team" alt="Portrait of Chloe Kim" class="w-full h-auto rounded-full object-cover aspect-square border-2 border-white/20">
+                        <h4 class="mt-4 font-heading font-semibold text-lg">Chloe Kim</h4>
+                        <span class="inline-block bg-brand-accent/10 text-brand-accent text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Data Science</span>
+                    </div>
+                    <!-- Team Member 8 -->
+                    <div class="text-center transition-all duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="450">
+                        <img src="https://placehold.co/300x300/111827/FFFFFF?text=Team" alt="Portrait of Marcus Cole" class="w-full h-auto rounded-full object-cover aspect-square border-2 border-white/20">
+                        <h4 class="mt-4 font-heading font-semibold text-lg">Marcus Cole</h4>
+                        <span class="inline-block bg-brand-accent/10 text-brand-accent text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Security Ops</span>
+                    </div>
+                    <!-- Team Member 9 -->
+                    <div class="text-center transition-all duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="500">
+                        <img src="https://placehold.co/300x300/111827/FFFFFF?text=You" alt="Placeholder for new team member" class="w-full h-auto rounded-full object-cover aspect-square border-2 border-brand-cta border-dashed">
+                        <h4 class="mt-4 font-heading font-semibold text-lg">You?</h4>
+                        <span class="inline-block bg-brand-cta/10 text-brand-cta text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Join Us</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- === Culture & Careers === -->
+        <section class="py-20 md:py-32 bg-brand-parchment text-brand-bg">
+            <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+                <div data-aos="fade-up">
+                    <h2 class="font-heading text-4xl sm:text-5xl font-bold">Work With Us</h2>
+                    <p class="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">We're building a remote-first culture based on trust, autonomy, and impact. Come do your best work.</p>
+                    
+                    <ul class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6 text-left max-w-3xl mx-auto">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-cta flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="font-semibold text-gray-800">Remote-First Culture</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-cta flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="font-semibold text-gray-800">Flexible Work Hours</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-cta flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="font-semibold text-gray-800">Generous Learning Stipend</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-cta flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="font-semibold text-gray-800">Full Health & Wellness</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-cta flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="font-semibold text-gray-800">Annual Team Retreats</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-cta flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="font-semibold text-gray-800">Home Office Stipend</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="contact.html" class="mt-12 inline-block bg-brand-cta hover:bg-opacity-80 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-all duration-300 shadow-glow-cta hover:shadow-none">
+                        See Open Roles
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Partners Marquee === -->
+        <section class="py-20 overflow-hidden">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="font-heading text-4xl sm:text-5xl font-bold">Press & Partners</h2>
+            </div>
+            <div class="relative flex overflow-x-hidden">
+                <div class="flex animate-marquee whitespace-nowrap">
+                    <!-- Logos (grayscale, will be duplicated by JS/CSS) -->
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">TechCrunch</text></svg>
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">FutureVentures</text></svg>
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">ConnectAI</text></svg>
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">Forbes</text></svg>
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">ScaleUp</text></svg>
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">DataGroup</text></svg>
+                </div>
+                <!-- Duplicate set for seamless loop -->
+                <div class="flex animate-marquee whitespace-nowrap" aria-hidden="true">
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">TechCrunch</text></svg>
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">FutureVentures</text></svg>
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">ConnectAI</text></svg>
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">Forbes</text></svg>
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">ScaleUp</text></svg>
+                    <svg class="w-40 h-12 mx-12 grayscale opacity-60" fill="currentColor" viewBox="0 0 160 50"><text x="0" y="30" font-size="24">DataGroup</text></svg>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- === Footer === -->
+    <footer class="py-16 border-t border-white/10">
+        <!-- Footer content copied from index.html for consistency -->
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <!-- Logo & Social -->
+                <div class="col-span-2">
+                     <a href="index.html" class="flex items-center gap-2" aria-label="Innovato Home">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 0L32 9.2376L24 28.7624L8 28.7624L0 9.2376L16 0Z" fill="#0FF4C6"/>
+                            <path d="M16 7.38992L26.3923 13.1188L20.8 24.8812H11.2L5.60771 13.1188L16 7.38992Z" fill="#0A0F1F"/>
+                        </svg>
+                        <span class="font-heading font-bold text-2xl text-white">Innovato</span>
+                    </a>
+                    <p class="mt-4 text-gray-400 text-sm max-w-xs">AI-driven tools for secure, scalable, and speedy B2B operations.</p>
+                     <!-- Social Icons -->
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white" aria-label="Innovato on Twitter"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                        <a href="#" class="text-gray-400 hover:text-white" aria-label="Innovato on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    </div>
+                </div>
+                
+                <!-- Links: Product -->
+                <div>
+                    <h4 class="font-heading font-semibold text-white">Product</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="index.html#products" class="text-gray-400 hover:text-white text-sm">Nexus AI</a></li>
+                        <li><a href="index.html#products" class="text-gray-400 hover:text-white text-sm">Shield Security</a></li>
+                        <li><a href="index.html#products" class="text-gray-400 hover:text-white text-sm">Automata</a></li>
+                        <li><a href="pricing.html" class="text-gray-400 hover:text-white text-sm">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links: Company -->
+                <div>
+                    <h4 class="font-heading font-semibold text-white">Company</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white text-sm">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Press</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links: Resources -->
+                <div>
+                    <h4 class="font-heading font-semibold text-white">Resources</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">API Status</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links: Legal -->
+                <div>
+                    <h4 class="font-heading font-semibold text-white">Legal</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Newsletter and Contact CTA -->
+            <div class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-center md:text-left">
+                    <h3 class="font-heading font-semibold text-white">Get in Touch</h3>
+                    <p class="text-gray-400 text-sm mt-1">Join our newsletter or contact sales.</p>
+                </div>
+                 <form class="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+                    <label for="footer-email" class="sr-only">Email address</label>
+                    <input 
+                        type="email" 
+                        id="footer-email"
+                        name="email" 
+                        placeholder="Enter your email" 
+                        required
+                        aria-label="Email address for newsletter"
+                        class="flex-grow w-full px-5 py-3 rounded-lg bg-brand-card border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent"
+                    >
+                    <button 
+                        type="submit" 
+                        class="bg-brand-cta hover:bg-opacity-80 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-glow-cta hover:shadow-none"
+                    >
+                        Submit
+                    </button>
+                </form>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-white/10 text-center text-gray-500 text-sm">
+                &copy; <span id="current-year"></span> Innovato Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- === Bio Modal === -->
+    <div id="bio-modal" class="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden" aria-modal="true" role="dialog" aria-labelledby="bio-modal-name">
+        <div class="bg-brand-card w-full max-w-2xl rounded-xl overflow-hidden shadow-2xl border border-white/10 relative m-4" style="opacity:0; transform: translateY(20px);" id="bio-modal-content">
+            <!-- Close Button -->
+            <button id="bio-modal-close" class="absolute top-3 right-3 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white z-10" aria-label="Close bio modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <!-- Modal Content -->
+            <div class="flex flex-col sm:flex-row items-center">
+                <img 
+                    id="bio-modal-image"
+                    src="https://placehold.co/200x200" 
+                    alt="Leader portrait"
+                    class="w-full sm:w-1/3 h-64 sm:h-auto object-cover"
+                >
+                <div class="p-8 flex-1">
+                    <h3 id="bio-modal-name" class="font-heading text-3xl font-semibold">Leader Name</h3>
+                    <p id="bio-modal-role" class="mt-1 text-brand-accent text-lg">Leader Role</p>
+                    <p id="bio-modal-bio" class="mt-4 text-gray-300">Bio text goes here...</p>
+                    <p id="bio-modal-fun" class="mt-4 text-sm text-gray-500 italic">Fun fact goes here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JS Libraries (GSAP & AOS) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Page JavaScript -->
+    <script>
+        // Sample Bio Data (to be loaded from about-content.json in a real app)
+        const bios = {
+            "1": {
+                "name": "Dr. Aris Thorne",
+                "role": "CEO & Co-Founder",
+                "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMGZlbWFsZSUyMHByb2Zlc3Npb25hbHxlbnwwfHx8fDE3MzAzMDQ1MTl8MA&ixlib=rb-4.0.3&q=85&w=400",
+                "bio": "Aris holds a Ph.D. in Explainable AI and spent a decade leading R&D at a top global tech firm before founding Innovato. She saw the gap between powerful AI models and their practical, secure application in business.",
+                "fun": "When not decoding AI, she's an avid astrophotographer."
+            },
+            "2": {
+                "name": "Kenji Tanaka",
+                "role": "CTO & Co-Founder",
+                "image": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMzI5MzV8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMG1hbGUlMjBwcm9mZXNzaW9uYWx8ZW58MHx8fHwxNzMwMzA0NTMxfDA&ixlib=rb-4.0.3&q=85&w=400",
+                "bio": "A prodigy developer, Kenji built and sold his first company by age 22. As CTO, he is the architect of Innovato's scalable, multi-cloud infrastructure. He is a fierce advocate for open-source and leads our security-first engineering practices.",
+                "fun": "He's on a lifelong quest to find the perfect cup of coffee."
+            },
+            "3": {
+                "name": "Maya Singh",
+                "role": "Chief Security Officer",
+                "image": "https://placehold.co/400x400/111827/FF6B6B?text=CSO",
+                "bio": "With 15 years in cybersecurity and counter-threat intelligence, Maya joined Innovato to build the industry's most secure B2B platform. She has defined security protocols for Fortune 500 companies and government agencies.",
+                "fun": "She restores vintage motorcycles in her spare time."
+            },
+            "4": {
+                "name": "Elena Rodriguez",
+                "role": "Chief Product Officer",
+                "image": "https://placehold.co/400x400/111827/FFFFFF?text=CPO",
+                "bio": "Elena lives at the intersection of user empathy and technical possibility. With a background in cognitive science and product design, she leads the teams that translate complex customer needs into simple, powerful solutions.",
+                "fun": "She speaks four languages and is learning her fifth."
+            }
+        };
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Progressive Enhancement Check ---
+            document.documentElement.classList.remove('no-js');
+            document.documentElement.classList.add('js');
+
+            // --- AOS Initialization ---
+            AOS.init({
+                once: true,
+                duration: 800,
+                easing: 'ease-out-quad',
+            });
+
+            // --- Navbar Scroll Effect ---
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('glass-nav');
+                } else {
+                    header.classList.remove('glass-nav');
+                }
+            });
+
+            // --- Mobile Menu Toggle ---
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- GSAP Hero Animations ---
+            gsap.registerPlugin(ScrollTrigger);
+            // Parallax
+            gsap.to("#about-hero-image", {
+                yPercent: 30, // Moves 30% of its height
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: 'section.relative.h-\\[70vh\\]', // Hero section
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true 
+                }
+            });
+            // Fade in content
+            gsap.to("#hero-content", {
+                opacity: 1,
+                y: 0,
+                delay: 0.2,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+
+            // --- Interactive Timeline Controls ---
+            const timelineContainer = document.getElementById('timeline-container');
+            const timelinePrev = document.getElementById('timeline-prev');
+            const timelineNext = document.getElementById('timeline-next');
+            const scrollAmount = 320; // Width of one card + gap
+
+            timelineNext.addEventListener('click', () => {
+                timelineContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+            timelinePrev.addEventListener('click', () => {
+                timelineContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+
+            // --- Leadership Carousel (Autoplay) ---
+            const leaderTrack = document.getElementById('leader-carousel-track');
+            const leaderWrapper = document.getElementById('leader-carousel-wrapper');
+            let isLeaderPaused = false;
+            
+            // Duplicate items for seamless loop
+            leaderTrack.innerHTML += leaderTrack.innerHTML; 
+
+            const leaderCarouselScroll = () => {
+                if (isLeaderPaused) return;
+                leaderTrack.scrollLeft += 1; // Adjust speed
+                
+                // If scrolled to the halfway point (end of original items), snap back to start
+                if (leaderTrack.scrollLeft >= leaderTrack.scrollWidth / 2) {
+                    leaderTrack.scrollLeft = 0;
+                }
+            };
+            
+            let leaderScrollInterval = setInterval(leaderCarouselScroll, 30); // Adjust interval
+            
+            leaderWrapper.addEventListener('mouseenter', () => { isLeaderPaused = true; });
+            leaderWrapper.addEventListener('mouseleave', () => { isLeaderPaused = false; });
+
+            // --- Bio Modal Logic ---
+            const bioModal = document.getElementById('bio-modal');
+            const bioModalContent = document.getElementById('bio-modal-content');
+            const bioModalClose = document.getElementById('bio-modal-close');
+            const openButtons = document.querySelectorAll('.bio-modal-open');
+            let lastFocusedElement;
+
+            const modalImage = document.getElementById('bio-modal-image');
+            const modalName = document.getElementById('bio-modal-name');
+            const modalRole = document.getElementById('bio-modal-role');
+            const modalBio = document.getElementById('bio-modal-bio');
+            const modalFun = document.getElementById('bio-modal-fun');
+
+            const openBioModal = (bioId) => {
+                const data = bios[bioId];
+                if (!data) return;
+
+                lastFocusedElement = document.activeElement;
+
+                modalImage.src = data.image;
+                modalImage.alt = `Portrait of ${data.name}`;
+                modalName.textContent = data.name;
+                modalRole.textContent = data.role;
+                modalBio.textContent = data.bio;
+                modalFun.textContent = data.fun;
+
+                bioModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                
+                // Animate in
+                gsap.to(bioModalContent, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' });
+                bioModalClose.focus(); // Focus the close button for accessibility
+            };
+
+            const closeBioModal = () => {
+                gsap.to(bioModalContent, { opacity: 0, y: 20, duration: 0.2, ease: 'power2.in', onComplete: () => {
+                    bioModal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    if (lastFocusedElement) {
+                        lastFocusedElement.focus(); // Return focus
+                    }
+                }});
+            };
+
+            openButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    openBioModal(btn.dataset.bioId);
+                });
+            });
+
+            bioModalClose.addEventListener('click', closeBioModal);
+            bioModal.addEventListener('click', (e) => {
+                if (e.target === bioModal) {
+                    closeBioModal();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !bioModal.classList.contains('hidden')) {
+                    closeBioModal();
+                }
+            });
+
+            // --- Footer Current Year ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        });
+    </script>
+
+</body>
+</html>
+
